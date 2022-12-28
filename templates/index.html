@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API Insurance Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+
+ <div class="login" style = "position:fixed; left:700px; top:200px;">
+
+	<h1>Predict Insurance Premium Price</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="Age" placeholder="Age of the user, integer" required="required" />
+        <input type="text" name="Diabetes" placeholder="If the user has diabete history, input 1 if has and 0 otherwise" required="required" />
+		<input type="text" name="Blood pressure problems" placeholder="If the user has blood pressure problems history, input 1 if has and 0 otherwise" required="required" />
+    <input type="text" name="Any transplants" placeholder="If the user has any transplants history, input 1 if has and 0 otherwise" required="required" />
+    <input type="text" name="Any chronic diseases" placeholder="If the user has any chronic diseases history, input 1 if has and 0 otherwise" required="required" />
+    <input type="text" name="Height" placeholder="Height of the user in cm" required="required" />
+    <input type="text" name="Weight" placeholder="Weight of the user in kg" required="required" />
+    <input type="text" name="Known allergies" placeholder="If the user has any known allergies history, input 1 if has and 0 otherwise" required="required" />
+    <input type="text" name="History of cancer in family " placeholder="If the user has any history of cancer in family, input 1 if has and 0 otherwise" required="required" />
+    <input type="text" name="Number of major surgeries " placeholder="Number of major surgeries the user had" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
