@@ -7,12 +7,12 @@ model = pickle.load(open('model.pkl', 'rb'))
 app = Flask(__name__)
 
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('index.html')
 
 
-@app.route('/home/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     feature = [int(x) for x in request.form.values()]
     feature = [feature]
