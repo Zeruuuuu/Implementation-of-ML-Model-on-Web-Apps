@@ -18,7 +18,8 @@ def predict():
     feature = [feature]
     feature = MinMaxScaler().fit_transform(feature)
     result = model.predict(feature)
-    return render_template('index.html', prediction_text=f'The predicted value of insurance price is ${int(result[0])}')
+    result = int(result[0])
+    return render_template('index.html', prediction_text='The predicted value of insurance price is $ {}'.format(result))
 
 
 if __name__ == '__main__':
