@@ -12,7 +12,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['PUT'])
 def predict():
     feature = [int(x) for x in request.form.values()]
     feature = [feature]
