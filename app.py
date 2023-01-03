@@ -16,7 +16,7 @@ def home():
 def predict():
     feature = [int(x) for x in request.form.values()]
     feature = [feature]
-    feature = MinMaxScaler().fit_transform(feature)
+    #feature = MinMaxScaler().fit_transform(feature)
     result = model.predict(feature)
     result = int(result[0])
     return render_template('index.html', prediction_text='The predicted value of insurance price is $ {}'.format(result))
